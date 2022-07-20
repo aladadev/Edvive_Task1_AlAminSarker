@@ -38,6 +38,7 @@ dependencies:
   avatar_glow: ^2.0.2
   highlight_text: ^1.4.0
   translator: ^0.1.7
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
