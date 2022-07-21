@@ -16,15 +16,20 @@ class SpeechScreen extends StatefulWidget {
 
 class _SpeechScreenState extends State<SpeechScreen> {
   LanguageCode dropdownValue = languages.first;
+  bool _isLoading = false;
 
   final sttp.SpeechToText _speech = sttp.SpeechToText();
   bool _isListening = false;
   String _text = 'Press the button and start speaking';
   final translator = GoogleTranslator();
   void translatingFunc() {
+    setState(() {
+      _isLoading = true;
+    });
     translator.translate(_text, to: dropdownValue.code).then((value) {
       setState(() {
         _text = value.toString();
+        _isLoading = false;
         print(value);
       });
     });
@@ -56,11 +61,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                _text,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, color: Colors.blueGrey.shade900),
-              ),
+              child: _isLoading
+                  ? CircularProgressIndicator()
+                  : Text(
+                      _text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 22, color: Colors.blueGrey.shade900),
+                    ),
             ),
             SizedBox(
               height: 30,

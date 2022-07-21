@@ -9,4 +9,10 @@ final List<LanguageCode> languages = [
   LanguageCode(title: 'French', code: 'fr'),
   LanguageCode(title: 'Hindi', code: 'hi'),
   LanguageCode(title: 'German', code: 'de'),
+  LanguageCode(title: 'Dutch', code: 'nl'),
+  LanguageCode(title: 'Croatian', code: 'hr'),
+  LanguageCode(title: 'Danish', code: 'da'),
+  LanguageCode(title: 'Italian', code: 'it'),
+  LanguageCode(title: 'Japanese', code: 'ja'),
+  LanguageCode(title: 'Spainish', code: 'es'),
 ];
